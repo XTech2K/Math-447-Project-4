@@ -2,7 +2,7 @@
 % input: space interval [xl,xr], time interval [tb,te], 
 %        number of space steps M, number of time steps N 
 % output: solution w 
-% Example usage: w=burgers(0,1,0,1,10,10) 
+% Example usage: w=burgers(0,1,0,2,20,40) 
 function w=burgers(xl,xr,tb,te,M,N) 
 alf=5;bet=4;D=.05; 
 f=@(x) 2*D*bet*pi*sin(pi*x)./(alf+bet*cos(pi*x)); 
