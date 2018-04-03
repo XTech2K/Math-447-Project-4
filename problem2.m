@@ -1,8 +1,12 @@
-burgers2(0,1,0,1,100,16,0);
+burgers2(0,1,0,1,100,16,1);
+
+%%
 
 p = 4:15;
 k = arrayfun(@(x) 2^x, p);
 h = arrayfun(@(x) x^-1, k);
+
+%%
 
 u = solution(4,3,0.2,0.5,1);
 err = zeros(12,1);
@@ -12,15 +16,33 @@ for i = 1:12
     err(i) = abs(w(51, end) - u);
 end
 
+%%
+
 plot(h, err, 'o', h, err)
+xlabel('step size')
+ylabel('error')
+
+%%
 
 loglog(h, err, 'o', h, err)
+xlabel('log(step size)')
+ylabel('log(error)')
+
+%%
 
 for i = 1:12
     w = burgers2(0,1,0,1,200,k(i),0);
-    err(i) = abs(w(51, end) - u);
+    err(i) = abs(w(101, end) - u);
 end
 
+%%
+
 plot(h, err, 'o', h, err)
+xlabel('step size')
+ylabel('error')
+
+%%
 
 loglog(h, err, 'o', h, err)
+xlabel('log(step size)')
+ylabel('log(error)')
